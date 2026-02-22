@@ -1,0 +1,7 @@
+[project]
+name = "tinydoc"
+version = "0.1.0"
+description = "Minimal documentation generator and exporter"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
