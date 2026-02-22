@@ -5,7 +5,7 @@ def main():
     parser = Parser()
     docobjs = parser.parse("~/Gits/lektra/src/Config.hpp")
 
-    with open("test.json", 'w') as f:
+    with open("/home/dheeraj/Gits/dheerajshenoy.github.io/config.json", 'w') as f:
         json.dump(docobjs, f)
 
 

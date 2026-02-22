@@ -42,7 +42,8 @@ class Parser:
                 key, _, value = line[4:].partition(" ")
 
                 if key == "section":
-                    current_section = {"name": value.strip(), "fields": [], "section_desc": None, "section_type": None }
+                    current_section = {"name": value.strip(), "fields": [], "section_desc": None, "section_type": None}
+                    current_tags = {}
 
                 elif key.startswith("section_"):
                     current_section[key] = value.strip()
@@ -54,11 +55,14 @@ class Parser:
                 else:
                     current_tags[key] = value.strip()
 
+                # For continuation lines
+            elif line.startswith("//") and not line.startswith("// @") and current_tags:
+                last = list(current_tags)[-1]
+                current_tags[last] = current_tags[last].rstrip(',') + ', ' + line[2:].strip()
 
             elif current_section and current_tags:
                 current_tags["name"] = line.split("{")[0].split()[-1]
                 current_section["fields"].append(current_tags)
                 current_tags = {}
-
 
         return sections
