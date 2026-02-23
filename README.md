@@ -12,3 +12,9 @@ Minimal source code documentation generator used for [LEKTRA](https://github.com
 - `@endsection` - End of section
 - `@section_desc` - Description of section
 - `@section_type` - Type of section
+- `@note` - Note
+- `@warning` - Warning
+- `@example` - Example
+- `@see` - See also
+- `@deprecated` - Deprecated
+- `@since` - Since version
